@@ -1,0 +1,7 @@
+---
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 The Linux Foundation
+
+# Path-specific configurations. None currently: the template's
+# testing.yaml override does not apply to this fixture repository.
+paths: {}
