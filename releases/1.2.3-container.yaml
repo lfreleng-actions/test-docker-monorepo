@@ -1,0 +1,37 @@
+---
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 The Linux Foundation
+
+# Container release descriptor, in the Linux Foundation self-release
+# schema. Merging a file like this under releases/ is what triggers
+# the registry-side promotion in docker-workflows' merge lane: the
+# staged name:version images named below copy to the release registry
+# at container_release_tag, with no rebuild.
+#
+# This fixture exists so that lane can be exercised end to end. The
+# workflow reads distribution_type, container_release_tag, containers
+# and the optional registry overrides; project and log_dir are carried
+# because real release files have them, and tolerating the full schema
+# is part of what needs proving.
+
+distribution_type: container
+project: test-docker-monorepo
+log_dir: test-docker-monorepo-docker-stage-master/1
+
+container_release_tag: 1.2.3
+
+# Override only the pull side, and only its port. The workflow
+# constrains an override to the host of its corresponding input,
+# because the promotion credential authenticates there; varying the
+# port exercises that check passing, while omitting
+# container_push_registry exercises the fallback to the release
+# registry input.
+container_pull_registry: nexus3.onap.org:10004
+
+containers:
+  - name: base-alpine
+    version: 1.2.3-20260101T000000Z
+  - name: chain-child
+    version: 1.2.3-20260101T000000Z
+  - name: util-echo
+    version: 1.2.3-20260101T000000Z
