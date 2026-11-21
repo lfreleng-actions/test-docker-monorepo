@@ -28,7 +28,7 @@ jobs:
     permissions:
       contents: write  # Draft, then publish, the GitHub release
     # yamllint disable-line rule:line-length
-    uses: lfreleng-actions/generic-workflows/.github/workflows/release.yaml@c98f3aaa4c67e656cb5a53e3a5ef22f6aa2d024e  # v0.8.0
+    uses: lfreleng-actions/generic-workflows/.github/workflows/release.yaml@7b5720020b61b6aead324badce794089cc2ae208  # v0.8.2
     # All inputs are optional; the defaults carry the tested gating
     # policy. Uncomment and tune only what your project needs.
     # with:
